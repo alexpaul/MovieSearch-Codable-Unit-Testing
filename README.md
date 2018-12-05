@@ -5,17 +5,19 @@ Using URLSession and Codable to make requests to the iTunes Search API
 
 ```swift 
 struct Movie: Codable {
-  let collectionId: Int? // needs to be an optional
+  let collectionId: Int?
   let trackId: Int
   let artistName: String
-  let collectionName: String? // needs to be an optional
+  let collectionName: String?
   let trackName: String
   let artworkUrl100: URL
-  let longDescription: String
+  let longDescription: String?
+  
   struct SearchData: Codable {
     let resultCount: Int
     let results: [Movie]
   }
+  // optionals are marked as needed as some movies are missing those properties
 }
 ```
 
@@ -45,6 +47,7 @@ Using associative types on the APIError enum to capture the given error in the M
 enum APIError: Error {
   case decodingError(Error)
   case networkError(Error)
+  case badURL(String)
 }
 ```
 
@@ -52,14 +55,16 @@ enum APIError: Error {
 
 ```swift 
 final class MovieSearchAPI {
-  
   // the network request is an asynchronous call
   // means the resutl is not immediately returned
   // so here we will need to use a callback in the form of an (escaping closure) to return the response is returned from the request
-  static func search(completionHandler: @escaping (APIError?, [Movie]?) -> Void)  {
-    let urlString = "https://itunes.apple.com/search?media=movie&term=holiday&limit=100"
-    let url = URL(string: urlString)
-    URLSession.shared.dataTask(with: url!) { (data, response, error) in
+  static func search(keyword: String, completionHandler: @escaping (APIError?, [Movie]?) -> Void)  {
+    let urlString = "https://itunes.apple.com/search?media=movie&term=\(keyword)&limit=100"
+    guard let url = URL(string: urlString) else {
+      completionHandler(.badURL("malformatted url"), nil)
+      return
+    }
+    URLSession.shared.dataTask(with: url) { (data, response, error) in
       if let error = error {
         completionHandler(.networkError(error), nil) // called when response is returned
       } else if let data = data {
@@ -72,7 +77,6 @@ final class MovieSearchAPI {
       }
     }.resume()
   }
-  
 }
 ```
 
