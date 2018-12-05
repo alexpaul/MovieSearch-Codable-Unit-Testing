@@ -89,5 +89,6 @@ func testMovieSearch() {
 
 ## Resources 
 
-[URLSession](https://developer.apple.com/documentation/foundation/urlsession)
+[URLSession](https://developer.apple.com/documentation/foundation/urlsession)   
+[Testing Asynchronous Operations with Expectations](https://developer.apple.com/documentation/xctest/asynchronous_tests_and_expectations/testing_asynchronous_operations_with_expectations)  
 
