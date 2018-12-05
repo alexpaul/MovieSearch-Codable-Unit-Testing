@@ -56,6 +56,14 @@ final class MovieSearchAPI {
 }
 ```
 
+## Escaping Closures 
+
+A closure is said to escape a function when the closure is passed as an argument to the function, but is called after the function returns. When you declare a function that takes a closure as one of its parameters, you can write @escaping before the parameter’s type to indicate that the closure is allowed to escape.
+
+One way that a closure can escape is by being stored in a variable that is defined outside the function. As an example, many functions that start an asynchronous operation take a closure argument as a completion handler. The function returns after it starts the operation, but the closure isn’t called until the operation is completed—the closure needs to escape, to be called later.
+
+[Closures](https://docs.swift.org/swift-book/LanguageGuide/Closures.html)   
+
 ## Error Handling 
 
 Using associative types on the APIError enum to capture the given error in the MovieSearchAPI class. 
