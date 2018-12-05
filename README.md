@@ -29,6 +29,12 @@ Unlike the other session types, you don’t create the shared session; you merel
 
 **NB**: Caches request by default  
 
+## Singleton
+
+A singleton class returns the same instance no matter how many times an application requests it. A typical class permits callers to create as many instances of the class as they want, whereas with a singleton class, there can be only one instance of the class per process. A singleton object provides a global point of access to the resources of its class. Singletons are used in situations where this single point of control is desirable, such as with classes that offer some general service or resource.
+
+[Singleton](https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/Singleton.html)  
+
 ## Error Handling 
 
 Using associative types on the APIError enum to capture the given error in the MovieSearchAPI class. 
