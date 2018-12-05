@@ -67,6 +67,26 @@ enum APIError: Error {
 }
 ```
 
+## Unit Testing 
+
+```swift 
+func testMovieSearch() {
+  let exp = expectation(description: "response returned")
+
+  MovieSearchAPI.search { (apiError, movies) in
+    if let apiError = apiError {
+      XCTFail("\(apiError)")
+    } else if let movies = movies {
+      XCTAssertGreaterThan(movies.count, 0, "should be greater than 0")
+    }
+    exp.fulfill()
+  }
+
+  wait(for: [exp], timeout: 3.0)
+
+}
+```
+
 ## Resources 
 
 [URLSession](https://developer.apple.com/documentation/foundation/urlsession)
