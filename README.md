@@ -69,6 +69,8 @@ final class MovieSearchAPI {
 }
 ```
 
+MovieSearchAPI is marked  ```swift final``` so its not able to be subclassed.   
+
 ## Escaping Closures 
 
 A closure is said to escape a function when the closure is passed as an argument to the function, but is called after the function returns. When you declare a function that takes a closure as one of its parameters, you can write @escaping before the parameter’s type to indicate that the closure is allowed to escape.
