@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5731BC7E21B82FAF004C9591 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5731BC7D21B82FAF004C9591 /* AppDelegate.swift */; };
-		5731BC8021B82FAF004C9591 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5731BC7F21B82FAF004C9591 /* ViewController.swift */; };
+		5731BC8021B82FAF004C9591 /* MovieSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5731BC7F21B82FAF004C9591 /* MovieSearchController.swift */; };
 		5731BC8321B82FAF004C9591 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5731BC8121B82FAF004C9591 /* Main.storyboard */; };
 		5731BC8521B82FB0004C9591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5731BC8421B82FB0004C9591 /* Assets.xcassets */; };
 		5731BC8821B82FB0004C9591 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5731BC8621B82FB0004C9591 /* LaunchScreen.storyboard */; };
@@ -30,7 +30,7 @@
 /* Begin PBXFileReference section */
 		5731BC7A21B82FAF004C9591 /* MovieSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5731BC7D21B82FAF004C9591 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5731BC7F21B82FAF004C9591 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5731BC7F21B82FAF004C9591 /* MovieSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchController.swift; sourceTree = "<group>"; };
 		5731BC8221B82FAF004C9591 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5731BC8421B82FB0004C9591 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5731BC8721B82FB0004C9591 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -81,8 +81,9 @@
 		5731BC7C21B82FAF004C9591 /* MovieSearch */ = {
 			isa = PBXGroup;
 			children = (
-				5731BC9221B82FFA004C9591 /* MovieSearchAPI.swift */,
-				5731BC9021B82FE1004C9591 /* Movie.swift */,
+				5731BCA321B84E4D004C9591 /* Services */,
+				5731BCA221B84E3F004C9591 /* Models */,
+				5731BCA421B84E7D004C9591 /* Controllers */,
 				5731BC8F21B82FCA004C9591 /* Supporting Files */,
 				5731BC8921B82FB0004C9591 /* Info.plist */,
 			);
@@ -93,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				5731BC7D21B82FAF004C9591 /* AppDelegate.swift */,
-				5731BC7F21B82FAF004C9591 /* ViewController.swift */,
 				5731BC8121B82FAF004C9591 /* Main.storyboard */,
 				5731BC8421B82FB0004C9591 /* Assets.xcassets */,
 				5731BC8621B82FB0004C9591 /* LaunchScreen.storyboard */,
@@ -108,6 +108,30 @@
 				5731BC9C21B83531004C9591 /* Info.plist */,
 			);
 			path = MovieSearchAPITests;
+			sourceTree = "<group>";
+		};
+		5731BCA221B84E3F004C9591 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5731BC9021B82FE1004C9591 /* Movie.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5731BCA321B84E4D004C9591 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5731BC9221B82FFA004C9591 /* MovieSearchAPI.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5731BCA421B84E7D004C9591 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5731BC7F21B82FAF004C9591 /* MovieSearchController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,7 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5731BC8021B82FAF004C9591 /* ViewController.swift in Sources */,
+				5731BC8021B82FAF004C9591 /* MovieSearchController.swift in Sources */,
 				5731BC7E21B82FAF004C9591 /* AppDelegate.swift in Sources */,
 				5731BC9121B82FE1004C9591 /* Movie.swift in Sources */,
 				5731BC9321B82FFA004C9591 /* MovieSearchAPI.swift in Sources */,
