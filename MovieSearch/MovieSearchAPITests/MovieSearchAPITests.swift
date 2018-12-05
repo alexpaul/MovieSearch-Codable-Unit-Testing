@@ -21,8 +21,7 @@ class MovieSearchAPITests: XCTestCase {
   
   func testMovieSearch() {
     let exp = expectation(description: "response returned")
-    
-    MovieSearchAPI.search { (apiError, movies) in
+    MovieSearchAPI.search(keyword: "comedy") { (apiError, movies) in
       if let apiError = apiError {
         XCTFail("\(apiError)")
       } else if let movies = movies {
@@ -30,25 +29,24 @@ class MovieSearchAPITests: XCTestCase {
       }
       exp.fulfill()
     }
-    
     wait(for: [exp], timeout: 3.0)
-
   }
   
   func testMovieSearchInfo() {
     let exp = expectation(description: "response returned")
-    
-    MovieSearchAPI.search { (apiError, movies) in
+    guard let keyword = "black panther".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+      XCTFail("malformatted string")
+      return
+    }
+    MovieSearchAPI.search(keyword: keyword) { (apiError, movies) in
       if let apiError = apiError {
         XCTFail("\(apiError)")
       } else if let movies = movies {
-        XCTAssertEqual(movies.first?.artistName, "Nancy Meyers", "should be equal to Nancy Meyers")
+        XCTAssertEqual(movies.first?.artistName, "Ryan Coogler", "should be equal to Ryan Coogler")
       }
       exp.fulfill()
     }
-    
     wait(for: [exp], timeout: 3.0)
-    
   }
   
 }

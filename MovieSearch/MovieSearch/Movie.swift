@@ -9,15 +9,17 @@
 import Foundation
 
 struct Movie: Codable {
-  let collectionId: Int? // needs to be an optional
+  let collectionId: Int?
   let trackId: Int
   let artistName: String
-  let collectionName: String? // needs to be an optional
+  let collectionName: String?
   let trackName: String
   let artworkUrl100: URL
-  let longDescription: String
+  let longDescription: String?
+  
   struct SearchData: Codable {
     let resultCount: Int
     let results: [Movie]
   }
+  // optionals are marked as needed as some movies are missing those properties
 }
