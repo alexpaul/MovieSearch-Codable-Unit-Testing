@@ -22,9 +22,9 @@ class MovieSearchAPITests: XCTestCase {
   func testMovieSearch() {
     let exp = expectation(description: "response returned")
     
-    MovieSearchAPI.search { (error, movies) in
-      if let error = error {
-        XCTFail(error.localizedDescription)
+    MovieSearchAPI.search { (apiError, movies) in
+      if let apiError = apiError {
+        XCTFail("\(apiError)")
       } else if let movies = movies {
         XCTAssertGreaterThan(movies.count, 0, "should be greater than 0")
       }
@@ -38,9 +38,9 @@ class MovieSearchAPITests: XCTestCase {
   func testMovieSearchInfo() {
     let exp = expectation(description: "response returned")
     
-    MovieSearchAPI.search { (error, movies) in
-      if let error = error {
-        XCTFail(error.localizedDescription)
+    MovieSearchAPI.search { (apiError, movies) in
+      if let apiError = apiError {
+        XCTFail("\(apiError)")
       } else if let movies = movies {
         XCTAssertEqual(movies.first?.artistName, "Nancy Meyers", "should be equal to Nancy Meyers")
       }
