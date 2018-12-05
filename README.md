@@ -27,6 +27,17 @@ For basic requests, the URLSession class provides a [shared](https://developer.a
 
 Unlike the other session types, you don’t create the shared session; you merely access it by using this property directly. As a result, you don’t provide a delegate or a configuration object.
 
+## Error Handling 
+
+Using associative types on the APIError enum to capture the given error in the MovieSearchAPI class. 
+
+```swift
+enum APIError: Error {
+  case decodingError(Error)
+  case networkError(Error)
+}
+```
+
 ## Network Layer 
 
 ```swift 
@@ -63,17 +74,6 @@ A closure is said to escape a function when the closure is passed as an argument
 One way that a closure can escape is by being stored in a variable that is defined outside the function. As an example, many functions that start an asynchronous operation take a closure argument as a completion handler. The function returns after it starts the operation, but the closure isn’t called until the operation is completed—the closure needs to escape, to be called later.
 
 [Closures](https://docs.swift.org/swift-book/LanguageGuide/Closures.html)   
-
-## Error Handling 
-
-Using associative types on the APIError enum to capture the given error in the MovieSearchAPI class. 
-
-```swift
-enum APIError: Error {
-  case decodingError(Error)
-  case networkError(Error)
-}
-```
 
 ## Unit Testing 
 
