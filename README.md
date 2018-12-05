@@ -59,7 +59,6 @@ final class MovieSearchAPI {
           let searchData = try JSONDecoder().decode(Movie.SearchData.self, from: data)
           completionHandler(nil, searchData.results) // called when response is returned
         } catch {
-          print("decoding error: \(error)")
           completionHandler(.decodingError(error), nil)
         }
       }
