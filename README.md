@@ -27,6 +27,8 @@ For basic requests, the URLSession class provides a [shared](https://developer.a
 
 Unlike the other session types, you don’t create the shared session; you merely access it by using this property directly. As a result, you don’t provide a delegate or a configuration object.
 
+**NB**: Caches request by default  
+
 ## Error Handling 
 
 Using associative types on the APIError enum to capture the given error in the MovieSearchAPI class. 
