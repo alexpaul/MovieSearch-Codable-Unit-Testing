@@ -91,7 +91,6 @@ One way that a closure can escape is by being stored in a variable that is defin
 ```swift 
   func testMovieSearch() {
     let exp = expectation(description: "response returned")
-    
     MovieSearchAPI.search(keyword: "comedy") { (apiError, movies) in
       if let apiError = apiError {
         XCTFail("\(apiError)")
@@ -100,19 +99,15 @@ One way that a closure can escape is by being stored in a variable that is defin
       }
       exp.fulfill()
     }
-    
     wait(for: [exp], timeout: 3.0)
-
   }
   
   func testMovieSearchInfo() {
     let exp = expectation(description: "response returned")
-    
     guard let keyword = "black panther".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
       XCTFail("malformatted string")
       return
     }
-    
     MovieSearchAPI.search(keyword: keyword) { (apiError, movies) in
       if let apiError = apiError {
         XCTFail("\(apiError)")
@@ -121,9 +116,7 @@ One way that a closure can escape is by being stored in a variable that is defin
       }
       exp.fulfill()
     }
-    
     wait(for: [exp], timeout: 3.0)
-    
   }
 ```
 
