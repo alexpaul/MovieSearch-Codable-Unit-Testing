@@ -89,21 +89,42 @@ One way that a closure can escape is by being stored in a variable that is defin
 ## Unit Testing 
 
 ```swift 
-func testMovieSearch() {
-  let exp = expectation(description: "response returned")
-
-  MovieSearchAPI.search { (apiError, movies) in
-    if let apiError = apiError {
-      XCTFail("\(apiError)")
-    } else if let movies = movies {
-      XCTAssertGreaterThan(movies.count, 0, "should be greater than 0")
+  func testMovieSearch() {
+    let exp = expectation(description: "response returned")
+    
+    MovieSearchAPI.search(keyword: "comedy") { (apiError, movies) in
+      if let apiError = apiError {
+        XCTFail("\(apiError)")
+      } else if let movies = movies {
+        XCTAssertGreaterThan(movies.count, 0, "should be greater than 0")
+      }
+      exp.fulfill()
     }
-    exp.fulfill()
+    
+    wait(for: [exp], timeout: 3.0)
+
   }
-
-  wait(for: [exp], timeout: 3.0)
-
-}
+  
+  func testMovieSearchInfo() {
+    let exp = expectation(description: "response returned")
+    
+    guard let keyword = "black panther".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+      XCTFail("malformatted string")
+      return
+    }
+    
+    MovieSearchAPI.search(keyword: keyword) { (apiError, movies) in
+      if let apiError = apiError {
+        XCTFail("\(apiError)")
+      } else if let movies = movies {
+        XCTAssertEqual(movies.first?.artistName, "Ryan Coogler", "should be equal to Ryan Coogler")
+      }
+      exp.fulfill()
+    }
+    
+    wait(for: [exp], timeout: 3.0)
+    
+  }
 ```
 
 ## Resources 
