@@ -69,7 +69,7 @@ final class MovieSearchAPI {
 }
 ```
 
-MovieSearchAPI is marked  ```swift final ``` so its not able to be subclassed.   
+MovieSearchAPI is marked  ``` final ``` so its not able to be subclassed.   
 
 ## Escaping Closures 
 
