@@ -81,7 +81,7 @@
 		5731BC7C21B82FAF004C9591 /* MovieSearch */ = {
 			isa = PBXGroup;
 			children = (
-				5731BCA321B84E4D004C9591 /* Services */,
+				5731BCA321B84E4D004C9591 /* Network Services */,
 				5731BCA221B84E3F004C9591 /* Models */,
 				5731BCA421B84E7D004C9591 /* Controllers */,
 				5731BC8F21B82FCA004C9591 /* Supporting Files */,
@@ -118,12 +118,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		5731BCA321B84E4D004C9591 /* Services */ = {
+		5731BCA321B84E4D004C9591 /* Network Services */ = {
 			isa = PBXGroup;
 			children = (
 				5731BC9221B82FFA004C9591 /* MovieSearchAPI.swift */,
 			);
-			path = Services;
+			path = "Network Services";
 			sourceTree = "<group>";
 		};
 		5731BCA421B84E7D004C9591 /* Controllers */ = {
